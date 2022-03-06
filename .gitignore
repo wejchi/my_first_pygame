@@ -1,0 +1,9 @@
+venv
+training
+music
+images
+screenshots
+.idea
+.vscode
+kapitan_model
+__pycache__
