@@ -7,10 +7,10 @@ class Player(pygame.Rect):
     def __init__(self):
         self.x = STARTING_X
         self.y = STARTING_Y
-        self.h = 200
+        self.h = 100
         self.w = 200
-        self.kapitan = pygame.image.load(PATH_TO_KAPITAN_BOMBA)
-        self.kapitan = pygame.transform.scale(self.kapitan, (self.h, self.w))
+        self.kapitan = pygame.image.load(PATH_TO_PLAYER)
+        self.kapitan = pygame.transform.scale(self.kapitan, (self.w, self.h))
         self.moving_up = 0
         self.moving_down = 0
         self.moving_left = 0
@@ -34,6 +34,6 @@ class Player(pygame.Rect):
 
     def shoot(self):
         if len(self.projectiles) < 5:
-            self.projectiles.append(Bullet(self.x+150, self.y+50))
+            self.projectiles.append(Bullet(self.x+175, self.y+25))
             return True
         return False

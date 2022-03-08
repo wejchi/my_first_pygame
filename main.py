@@ -4,11 +4,11 @@ from CONST import *
 from player import Player
 from enemy import Enemy
 from explosion import Explosion
-from model import get_model
-import numpy as np
-import pandas as pd
+#from model import get_model
+#import numpy as np
+#import pandas as pd
 #import tensorflow as tf
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 
 class Game:
@@ -23,16 +23,16 @@ class Game:
         # load background
         self.background = pygame.image.load(PATH_TO_BACKGROUND)
         self.background = pygame.transform.scale(self.background, RESOLUTION)
-        # load kpt bomba
+        # load kpt
         self.screen = pygame.display.set_mode(RESOLUTION)
-        pygame.display.set_caption('Kapitan Bomba')
+        pygame.display.set_caption('Kapitan')
         self.buffer = None
         self.score = 0
         self.enemies = []
         self.explosions = []
         self.score_round = 0
         self.projectiles = []
-        self.input_as_numpy = np.array([0, 0, 0, 0, 0])
+        # self.input_as_numpy = np.array([0, 0, 0, 0, 0])
 
     def play_music(self):
         pygame.mixer.music.load(MUSIC_PATH)
@@ -150,12 +150,12 @@ class Game:
         self.moving_down.append(self.player.moving_down)
 
     def play_game(self):
-        self.play_music()
+        # self.play_music()
         while True:
             if len(self.enemies) < 2:
                 self.enemies.append(Enemy(self))
             self.draw()
-            self.refresh_screen(60)
+            self.refresh_screen(FRAMERATE)
             self.check_events()
             self.logic()
 

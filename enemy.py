@@ -4,12 +4,12 @@ import random
 from projectile import Laser
 
 class Enemy(pygame.Rect):
-    img = pygame.image.load(PATH_TO_KURVINOX)
-    img = pygame.transform.scale(img, (200, 200))
+    img = pygame.image.load(PATH_TO_ENEMY)
+    img = pygame.transform.scale(img, (200, 100))
     def __init__(self, game, img = img):
         self.x = 2000
         self.y = int(random.uniform(0, 700))
-        self.h = 200
+        self.h = 100
         self.w = 200
         self.game = game
         # self.enemy = pygame.image.load(PATH_TO_KURVINOX)
@@ -26,5 +26,5 @@ class Enemy(pygame.Rect):
         if self.wait > 0:
             self.wait -=1
         else:
-            self.game.projectiles.append(Laser(self.x, self.y+50))
+            self.game.projectiles.append(Laser(self.x, self.y+25))
             self.wait = 90
